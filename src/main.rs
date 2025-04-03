@@ -27,7 +27,8 @@ fn setup(
     let mut graph = AnimationGraph::new();
     let animations = graph
         .add_clips(
-            [GltfAssetLabel::Animation(0).from_asset("cube.gltf")]
+            // [GltfAssetLabel::Animation(0).from_asset("cube.gltf")]
+            [GltfAssetLabel::Animation(0).from_asset("vehicle_depot.gltf")]
                 .into_iter()
                 .map(|path| asset_server.load(path)),
             1.0,
@@ -81,7 +82,8 @@ fn setup(
 }
 
 fn spawn_cube(mut cmds: Commands, assets: Res<AssetServer>) {
-    let handle = assets.load("cube.gltf#Scene0");
+    // let handle = assets.load("cube.gltf#Scene0");
+    let handle = assets.load("vehicle_depot.gltf#Scene0");
     cmds.spawn(SceneRoot(handle));
 }
 
